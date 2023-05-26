@@ -2,12 +2,12 @@ package base
 
 import "reflect"
 
-type BaseMapper[T any] struct {
+type Mapper[T any] struct {
 	BeforeMap2Model func(from any) any
 	AfterMap2Model  func(from any, to *T) *T
 }
 
-func (m *BaseMapper[T]) Map2Model(from any) *T {
+func (m *Mapper[T]) Map2Model(from any) *T {
 	from = neverBePtr(from)
 	if m.BeforeMap2Model != nil {
 		from = m.BeforeMap2Model(from)
@@ -19,10 +19,16 @@ func (m *BaseMapper[T]) Map2Model(from any) *T {
 	return to
 }
 
-func (m *BaseMapper[T]) Map2Models(from []any) []T {
-	var to []T
-	for _, f := range from {
-		to = append(to, *m.Map2Model(f))
+func (m *Mapper[T]) Map2Models(from any) []T {
+	from = neverBePtr(from)
+	fromVal := reflect.ValueOf(from)
+	if fromVal.Kind() != reflect.Slice {
+		panic("from must be a slice")
+	}
+
+	to := make([]T, fromVal.Len())
+	for i := 0; i < fromVal.Len(); i++ {
+		to = append(to, *m.Map2Model(fromVal.Index(i).Interface()))
 	}
 	return to
 }
@@ -43,10 +49,16 @@ func Map2Model[T any](from any) *T {
 	return to.Addr().Interface().(*T)
 }
 
-func Map2Models[T any](from []any) []T {
-	var to []T
-	for _, f := range from {
-		to = append(to, *Map2Model[T](f))
+func Map2Models[T any](from any) []T {
+	from = neverBePtr(from)
+	fromVal := reflect.ValueOf(from)
+	if fromVal.Kind() != reflect.Slice {
+		panic("from must be a slice")
+	}
+
+	to := make([]T, fromVal.Len())
+	for i := 0; i < fromVal.Len(); i++ {
+		to = append(to, *Map2Model[T](fromVal.Index(i).Interface()))
 	}
 	return to
 }
