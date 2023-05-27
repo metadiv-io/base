@@ -28,7 +28,7 @@ func (m *Mapper[T]) Map2Models(from any) []T {
 
 	to := make([]T, fromVal.Len())
 	for i := 0; i < fromVal.Len(); i++ {
-		to = append(to, *m.Map2Model(fromVal.Index(i).Interface()))
+		to[i] = *m.Map2Model(fromVal.Index(i).Interface())
 	}
 	return to
 }
@@ -58,7 +58,7 @@ func Map2Models[T any](from any) []T {
 
 	to := make([]T, fromVal.Len())
 	for i := 0; i < fromVal.Len(); i++ {
-		to = append(to, *Map2Model[T](fromVal.Index(i).Interface()))
+		to[i] = *Map2Model[T](fromVal.Index(i).Interface())
 	}
 	return to
 }
