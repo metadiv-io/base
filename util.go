@@ -1,7 +1,6 @@
 package base
 
 import (
-	"fmt"
 	"reflect"
 )
 
@@ -66,7 +65,6 @@ func setField(v reflect.Value, field field) reflect.Value {
 		if f.Name == field.Name {
 			_, ok := v.Type().FieldByName(field.Name)
 			if ok {
-				fmt.Println(field.Type, f.Type)
 				if field.Type == f.Type {
 					v.FieldByName(field.Name).Set(field.Value)
 				}
