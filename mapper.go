@@ -33,6 +33,22 @@ func (m *Mapper[T]) Map2Models(from any) []T {
 	return to
 }
 
+func MapModel2Model[T any](from any, to *T) *T {
+	from = neverBePtr(from)
+	toVal := reflect.ValueOf(to).Elem()
+
+	if from == nil {
+		return to
+	}
+
+	fields := parseField(from)
+	for _, f := range fields {
+		toVal = setField(toVal, f)
+	}
+
+	return toVal.Addr().Interface().(*T)
+}
+
 func Map2Model[T any](from any) *T {
 	from = neverBePtr(from)
 	to := reflect.ValueOf(new(T)).Elem()
