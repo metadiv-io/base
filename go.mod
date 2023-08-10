@@ -3,7 +3,7 @@ module github.com/metadiv-io/base
 go 1.20
 
 require (
-	github.com/metadiv-io/sql v1.1.12
+	github.com/metadiv-io/sql v1.1.13
 	gorm.io/gorm v1.25.3
 )
 
