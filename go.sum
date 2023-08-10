@@ -25,6 +25,8 @@ github.com/metadiv-io/sql v1.1.12 h1:dDlpKH4eyxLkjN/IEcYRX4WOmGTyXbbET1UCIJTd5rA
 github.com/metadiv-io/sql v1.1.12/go.mod h1:JcqN+pft6YEsOeoSHMYMu1dOTAg8OKLz/y3s5iMU0Yo=
 github.com/metadiv-io/sql v1.1.13 h1:oaa5iQMw5olMttuLk3ffYuGe2N25NcIhEx+0qSpPCkI=
 github.com/metadiv-io/sql v1.1.13/go.mod h1:JcqN+pft6YEsOeoSHMYMu1dOTAg8OKLz/y3s5iMU0Yo=
+github.com/metadiv-io/sql v1.1.14 h1:kqg1QTMFhHam8sRNUi+ENd9Ql65AJj2S4WND6s5nCPc=
+github.com/metadiv-io/sql v1.1.14/go.mod h1:JcqN+pft6YEsOeoSHMYMu1dOTAg8OKLz/y3s5iMU0Yo=
 github.com/onsi/ginkgo/v2 v2.9.4 h1:xR7vG4IXt5RWx6FfIjyAtsoMAtnc3C/rFXBBd2AjZwE=
 github.com/onsi/gomega v1.27.6 h1:ENqfyGeS5AX/rlXDd/ETokDz93u0YufY1Pgxuy/PvWE=
 golang.org/x/net v0.9.0 h1:aWJ/m6xSmxWBx+V0XRHTlrYrPG56jKsLdTFmsSsCzOM=
