@@ -1,6 +1,10 @@
 package base
 
-import "reflect"
+import (
+	"reflect"
+
+	"github.com/metadiv-io/mapper"
+)
 
 type Mapper[T any] struct {
 	BeforeMap2Model func(from any) any
@@ -12,7 +16,7 @@ func (m *Mapper[T]) Map2Model(from any) *T {
 	if m.BeforeMap2Model != nil {
 		from = m.BeforeMap2Model(from)
 	}
-	to := Map2Model[T](from)
+	to := mapper.Map2Model[T](from)
 	if m.AfterMap2Model != nil {
 		to = m.AfterMap2Model(from, to)
 	}
@@ -31,4 +35,11 @@ func (m *Mapper[T]) Map2Models(from any) []T {
 		to[i] = *m.Map2Model(fromVal.Index(i).Interface())
 	}
 	return to
+}
+
+func neverBePtr(v any) any {
+	if reflect.TypeOf(v).Kind() == reflect.Ptr {
+		return reflect.ValueOf(v).Elem().Interface()
+	}
+	return v
 }
