@@ -37,6 +37,18 @@ func (m *Mapper[T]) Map2Models(from any) []T {
 	return to
 }
 
+func (m *Mapper[T]) MapModel2Model(from any, to *T) *T {
+	from = neverBePtr(from)
+	if m.BeforeMap2Model != nil {
+		from = m.BeforeMap2Model(from)
+	}
+	mapper.MapModel2Model[T](from, to)
+	if m.AfterMap2Model != nil {
+		to = m.AfterMap2Model(from, to)
+	}
+	return to
+}
+
 func neverBePtr(v any) any {
 	if reflect.TypeOf(v).Kind() == reflect.Ptr {
 		return reflect.ValueOf(v).Elem().Interface()

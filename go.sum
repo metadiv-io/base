@@ -14,6 +14,8 @@ github.com/mattn/go-sqlite3 v1.14.17 h1:mCRHCLDUBXgpKAqIKsaAaAsrAlbkeomtRFKXh2L6
 github.com/mattn/go-sqlite3 v1.14.17/go.mod h1:2eHXhiwb8IkHr+BDWZGa96P6+rkvnG63S2DGjv9HUNg=
 github.com/metadiv-io/mapper v1.0.1 h1:xPZWyRkDgUur85pe67mqMTkkSRoZf42YFpV0XMFBj3A=
 github.com/metadiv-io/mapper v1.0.1/go.mod h1:tQYAHLJJ6rEgGihQMd8aKEXBSZ1Zo39z2B03RAvgyME=
+github.com/metadiv-io/mapper v1.1.0 h1:UMhYrHWXE9kNTK7LAvaN4PfWKjjycgNBMozh0TnKEao=
+github.com/metadiv-io/mapper v1.1.0/go.mod h1:tQYAHLJJ6rEgGihQMd8aKEXBSZ1Zo39z2B03RAvgyME=
 github.com/metadiv-io/sql v1.1.14 h1:kqg1QTMFhHam8sRNUi+ENd9Ql65AJj2S4WND6s5nCPc=
 github.com/metadiv-io/sql v1.1.14/go.mod h1:JcqN+pft6YEsOeoSHMYMu1dOTAg8OKLz/y3s5iMU0Yo=
 github.com/onsi/ginkgo/v2 v2.9.4 h1:xR7vG4IXt5RWx6FfIjyAtsoMAtnc3C/rFXBBd2AjZwE=

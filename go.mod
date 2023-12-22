@@ -3,7 +3,7 @@ module github.com/metadiv-io/base
 go 1.20
 
 require (
-	github.com/metadiv-io/mapper v1.0.1
+	github.com/metadiv-io/mapper v1.1.0
 	github.com/metadiv-io/sql v1.1.14
 	gorm.io/gorm v1.25.5
 )
