@@ -42,7 +42,7 @@ func (m *Mapper[T]) MapModel2Model(from any, to *T) *T {
 	if m.BeforeMap2Model != nil {
 		from = m.BeforeMap2Model(from)
 	}
-	mapper.MapModel2Model[T](from, to)
+	to = mapper.MapModel2Model[T](from, to)
 	if m.AfterMap2Model != nil {
 		to = m.AfterMap2Model(from, to)
 	}
